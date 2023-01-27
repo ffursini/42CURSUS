@@ -1,2 +1,2 @@
-# 42-main
+# 42CURSUS
 LIBFT 125/100
