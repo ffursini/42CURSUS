@@ -29,12 +29,12 @@ LIPRIN	=	libft/libft.a ft_printf/libftprintf.a
 all:
 		make -C $(PRINTF)
 		make -C $(LIBFT)
-		${CC} ${FLAGS} ${SRCS_C} ${SRCS} ${LIPRIN} -o ${NAME_C}
-		${CC} ${FLAGS} ${SRCS_S} ${SRCS}${LIPRIN} -o ${NAME_S}
+		${CC} ${FLAGS} ${SRCS_C} ${LIPRIN} -o ${NAME_C}
+		${CC} ${FLAGS} ${SRCS_S} ${LIPRIN} -o ${NAME_S}
 client:
 		make -C $(PRINTF)
 		make -C $(LIBFT)
-		${CC} ${FLAGS} ${SRCS_C} ${SRCS} ${LIPRIN} -o ${NAME_C}
+		${CC} ${FLAGS} ${SRCS_C} ${LIPRIN} -o ${NAME_C}
 server:
 		make -C $(PRINTF)
 		make -C $(LIBFT)
@@ -46,7 +46,7 @@ clean:
 		${RM} ${OBJS_S}
 fclean:	clean
 		make fclean -C ${PRINTF}
-		make clean -C ${LIBFT}
+		make fclean -C ${LIBFT}
 		${RM} ${NAME_C}
 		${RM} ${NAME_S}
 re:		fclean all
