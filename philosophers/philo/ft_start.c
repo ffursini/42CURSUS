@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 01:44:03 by fursini           #+#    #+#             */
-/*   Updated: 2023/03/28 05:30:49 by fursini          ###   ########.fr       */
+/*   Updated: 2023/03/28 12:57:24 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	*routine(void *philosopher)
 		ft_print_status(philo, "is thinking");
 		i++;
 	}
-
 	return (NULL);
 }
 
@@ -79,40 +78,40 @@ void	ft_eat(t_philos *philo)
 	pthread_mutex_unlock(&data->forks[philo->right_fork_id]);
 }
 
-void	ft_sleep(long long time, t_data *data)
+void	ft_sleep(unsigned long time, t_data *data)
 {
-	long long	start;
+	unsigned long	start;
 
 	start = ft_get_time();
 	while (!data->death && ft_get_time() - start < time)
 		usleep(50);
 }
 
-void	ft_death(t_data *data, t_philos *philo)
+void	ft_death(t_data *d, t_philos *philo)
 {
 	int	i;
 
-	while (data->all_eat == 0)
+	while (d->all_eat == 0)
 	{
 		i = -1;
-		while (++i < data->philo_num && data->death == 0)
+		while (++i < d->philo_num && d->death == 0)
 		{
-			pthread_mutex_lock(&data->eat);
-			if (ft_get_time() - philo[i].last_meal > data->time_to_die)
+			pthread_mutex_lock(&d->eat);
+			if ((int)((ft_get_time() - philo[i].last_meal)) >= d->time_to_die)
 			{
 				ft_print_status(&philo[i], "died");
-				data->death = 1;
+				d->death = 1;
 			}
-			pthread_mutex_unlock(&data->eat);
+			pthread_mutex_unlock(&d->eat);
 			usleep(100);
 		}
-		if (data->death == 1)
+		if (d->death == 1)
 			break ;
 		i = 0;
-		while (data->times_must_eat != -1 && i < data->philo_num
-			&& philo[i].meals >= data->times_must_eat)
+		while (d->times_must_eat != -1 && i < d->philo_num
+			&& philo[i].meals >= d->times_must_eat)
 			i++;
-		if (i == data->philo_num)
-			data->all_eat = 1;
+		if (i == d->philo_num)
+			d->all_eat = 1;
 	}
 }

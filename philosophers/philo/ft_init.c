@@ -20,6 +20,7 @@ int	ft_init_params(t_data *data, int ac, char **av)
 	data->time_to_sleep = ft_atoi(av[4]);
 	data->death = 0;
 	data->all_eat = 0;
+	data->start_time = ft_get_time();
 	if (data->philo_num < 1 || data->time_to_die < 0
 		|| data->time_to_eat < 0 || data->time_to_sleep < 0
 		|| data->philo_num > 250)
@@ -67,4 +68,3 @@ void	ft_init_philo(t_data *data)
 		data->philos[i].data = data;
 	}
 }
-

@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 19:02:45 by fursini           #+#    #+#             */
-/*   Updated: 2023/03/28 05:15:22 by fursini          ###   ########.fr       */
+/*   Updated: 2023/03/28 12:41:54 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_atoi(const char *str)
 	return (result * sign);
 }
 
-long long	ft_get_time(void)
+unsigned long	ft_get_time(void)
 {
 	struct timeval	time;
 
@@ -54,7 +54,7 @@ void	ft_print_status(t_philos *philo, char *status)
 	pthread_mutex_lock(&philo->data->print);
 	if (philo->data->death == 0)
 	{
-		printf("%lld %d %s\n", ft_get_time() - philo->data->start_time,
+		printf("%lu %d %s\n", ft_get_time() - philo->data->start_time,
 			philo->id + 1, status);
 	}
 	pthread_mutex_unlock(&philo->data->print);
