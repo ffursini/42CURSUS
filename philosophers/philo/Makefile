@@ -6,7 +6,7 @@
 #    By: fursini <fursini@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 17:47:44 by fursini           #+#    #+#              #
-#    Updated: 2023/03/28 02:55:06 by fursini          ###   ########.fr        #
+#    Updated: 2023/03/28 17:43:00 by fursini          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,11 @@ OBJS	=	$(SRCS:.c=.o)
 CCFLAGS	=	gcc -Wall -Wextra -Werror
 RM		=	rm -f
 
+$(NAME):
+		$(CCFLAGS) $(SRCS) -o $(NAME)
+
 all:
-			$(CCFLAGS) $(SRCS) -o $(NAME)
+		$(NAME)
 clean:
 			$(RM) $(OBJS)
 fclean:	clean

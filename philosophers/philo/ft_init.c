@@ -68,3 +68,8 @@ void	ft_init_philo(t_data *data)
 		data->philos[i].data = data;
 	}
 }
+
+void	ft_one_philo(t_data *data)
+{
+	printf("%d 1 died\n", data->time_to_die);
+}

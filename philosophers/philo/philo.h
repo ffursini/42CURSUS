@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 17:48:27 by fursini           #+#    #+#             */
-/*   Updated: 2023/03/28 12:41:08 by fursini          ###   ########.fr       */
+/*   Updated: 2023/03/28 16:42:53 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ void			ft_exit(t_data *data, t_philos *philo);
 unsigned long	ft_get_time(void);
 void			ft_print_status(t_philos *philo, char *status);
 int				ft_atoi(const char *str);
+void			ft_one_philo(t_data *data);
 
 #endif

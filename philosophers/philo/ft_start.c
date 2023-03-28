@@ -6,7 +6,7 @@
 /*   By: fursini <fursini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 01:44:03 by fursini           #+#    #+#             */
-/*   Updated: 2023/03/28 12:57:24 by fursini          ###   ########.fr       */
+/*   Updated: 2023/03/28 16:43:59 by fursini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ int	ft_start(t_data *data)
 			philo[i].last_meal = ft_get_time();
 			i++;
 		}
+		ft_death(data, data->philos);
 	}
-	ft_death(data, data->philos);
+	else
+		ft_one_philo(data);
 	ft_exit(data, philo);
 	return (0);
 }
